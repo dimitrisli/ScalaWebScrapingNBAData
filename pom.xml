@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ScalaWebScrapingNBAData</groupId>
+    <artifactId>ScalaWebScrapingNBAData</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <repositories>
+        <repository>
+            <id>Sonatype snapshots</id>
+            <name>Sonatype snapshots</name>
+            <url>http://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <scala.version>2.10.2</scala.version>
+        <scala-csv.version>1.0.0-SNAPSHOT</scala-csv.version>
+        <jsoup.version>1.6.3</jsoup.version>
+        <scala-actors.version>2.10.2</scala-actors.version>
+    </properties>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.tototoshi</groupId>
+            <artifactId>scala-csv_2.10</artifactId>
+            <version>${scala-csv.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>${jsoup.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-actors</artifactId>
+            <version>${scala-actors.version}</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.1.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
