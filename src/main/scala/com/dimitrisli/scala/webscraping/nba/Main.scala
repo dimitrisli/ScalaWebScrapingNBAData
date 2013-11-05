@@ -42,10 +42,11 @@ object Main {
       .toSeq:_*) //TreeMap does
 
     def stopWatchWrapper(url:String)(f: String => Unit){
-      val stopwatchStart = System.currentTimeMillis
+      def roundDouble(double: Double) = BigDecimal(double).setScale(2, BigDecimal.RoundingMode.HALF_UP).toDouble
+      val stopwatchStart = System.nanoTime
       f(url)
-      val stopwatchEnd = System.currentTimeMillis
-      println(s"Completed in: ${(stopwatchEnd-stopwatchStart)/1000.0} secs")
+      val stopwatchEnd = System.nanoTime
+      println(s"Completed in: ${roundDouble((stopwatchEnd-stopwatchStart)/1000000000.0)} secs")
     }
 
     val url = "http://espn.go.com/nba/statistics/player/_/stat/scoring-per-game/sort/avgPoints/year/2013/"
